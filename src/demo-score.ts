@@ -1,248 +1,361 @@
 import * as Cord from '@cord.network/sdk'
-import { UUID, Crypto } from '@cord.network/utils'
-import { generateKeypairs } from './utils/generateKeypairs'
 import { createDid } from './utils/generateDid'
-import { addRegistryAdminDelegate } from './utils/generateRegistry'
-import { randomUUID } from 'crypto'
-import { addAuthority } from './utils/createAuthorities'
+import { createDidName } from './utils/generateDidName'
+import { getDidDocFromName } from './utils/queryDidName'
+import { addNetworkMember } from './utils/createAuthorities'
 import { createAccount } from './utils/createAccount'
-import { RatingEntry, IJournalContent, RatingType } from '@cord.network/types'
 
 async function main() {
-  const networkAddress = 'ws://127.0.0.1:9944'
+  const networkAddress = process.env.NETWORK_ADDRESS ? process.env.NETWORK_ADDRESS : 'ws://127.0.0.1:9944';
   Cord.ConfigService.set({ submitTxResolveOn: Cord.Chain.IS_IN_BLOCK })
   await Cord.connect(networkAddress)
-
-  const api = Cord.ConfigService.get('api')
-
-  console.log(`\n❄️   New Member\n`)
-  const authorityAuthorIdentity = Crypto.makeKeypairFromUri(
-    '//Alice',
+  const devAuthorIdentity = Cord.Utils.Crypto.makeKeypairFromUri(
+    process.env.ANCHOR_URI ? process.env.ANCHOR_URI : '//Alice',
     'sr25519'
   )
-  // Setup author authority account.
-  const { account: authorIdentity } = await createAccount()
-  console.log(`🏦  Member (${authorIdentity.type}): ${authorIdentity.address}`)
-  await addAuthority(authorityAuthorIdentity, authorIdentity.address)
-  console.log(`🔏  Member permissions updated`)
-  console.log('✅  Network Member added!')
+  console.log(`\n🌐 Network Score Initial Setup`)
 
-  // Step 2: Setup Identities
-  console.log(`\n❄️   Demo Identities (KeyRing)\n`)
-  const { mnemonic: issuerMnemonic, document: issuerDid } = await createDid(
-    authorIdentity
+  console.log(`\n🎎 Particpants `)
+  const { account: networkAuthorIdentity } = createAccount(
+    Cord.Utils.Crypto.mnemonicGenerate()
   )
-  const issuerKeys = generateKeypairs(issuerMnemonic)
   console.log(
-    `🏛   Issuer (${issuerDid?.assertionMethod![0].type}): ${issuerDid.uri}`
+    `🔐 Network Member (${devAuthorIdentity.type}): ${devAuthorIdentity.address}`
   )
+  await addNetworkMember(devAuthorIdentity, networkAuthorIdentity.address)
+  console.log('✅ Network Membership Approved! 🎉\n')
 
-  // Create Delegate One DID
-  const { mnemonic: delegateOneMnemonic, document: delegateOneDid } =
-    await createDid(authorIdentity)
-
-  const delegateOneKeys = generateKeypairs(delegateOneMnemonic)
-
+  const { mnemonic: chainSpaceAdminMnemonic, document: chainSpaceAdminDid } =
+    await createDid(networkAuthorIdentity)
+  const chainSpaceAdminKeys = Cord.Utils.Keys.generateKeypairs(chainSpaceAdminMnemonic, 'sr25519')
   console.log(
-    `🏛   Delegate (${delegateOneDid?.assertionMethod![0].type}): ${
-      delegateOneDid.uri
-    }`
+    `🔐  Network Score Admin (${chainSpaceAdminDid.authentication[0].type}): ${chainSpaceAdminDid.uri}`
   )
-
-  console.log('✅  Identities created!')
-
-  // Seller Entities
-  console.log(`\n❄️   Demo Seller Entities\n`)
-  const sellerIdentity1 = Crypto.makeKeypairFromUri('//Entity1', 'sr25519')
+  const { mnemonic: networkProviderMnemonic, document: networkProviderDid } =
+    await createDid(networkAuthorIdentity)
+  const networkProviderKeys = Cord.Utils.Keys.generateKeypairs(networkProviderMnemonic, 'sr25519')
   console.log(
-    `🏛   Seller Entity 1 (${sellerIdentity1.type}): ${sellerIdentity1.address}`
+    `🔐  Network Participant (Provider) (${networkProviderDid.authentication[0].type}): ${networkProviderDid.uri}`
   )
 
-  const sellerIdentity2 = Crypto.makeKeypairFromUri('//Entity2', 'sr25519')
+  const { mnemonic: networkAuthorMnemonic, document: networkAuthorDid } =
+    await createDid(networkAuthorIdentity)
+  const networkAuthorKeys = Cord.Utils.Keys.generateKeypairs(networkAuthorMnemonic, 'sr25519')
   console.log(
-    `🏛   Seller Entity 2 (${sellerIdentity2.type}): ${sellerIdentity2.address}`
+    `🔐 Network Author (API -> Node) (${networkAuthorDid.authentication[0].type}): ${networkAuthorDid.uri}`
   )
 
-  const sellerIdentity3 = Crypto.makeKeypairFromUri('//Entity3', 'sr25519')
-  console.log(
-    `🏛   Seller Entity 3 (${sellerIdentity3.type}): ${sellerIdentity3.address}`
+  console.log('✅ Network Members created! 🎉')
+
+  // uncomment to enable DID name creation
+  // console.log(`\n❄️  Network Participant DID name Creation `)
+  // const randomDidName = `solar.sailer.${randomUUID().substring(0, 4)}@cord`
+
+  // await createDidName(
+  //   networkParticipantDid.uri,
+  //   networkAuthorIdentity,
+  //   randomDidName,
+  //   async ({ data }) => ({
+  //     signature: networkParticipantKeys.authentication.sign(data),
+  //     keyType: networkParticipantKeys.authentication.type,
+  //   })
+  // )
+  // console.log(`✅ Network Participant DID name - ${randomDidName} - created!`)
+  // await getDidDocFromName(randomDidName)
+
+  console.log(`\n🌐  Network Score Chain Space Creation `)
+  const spaceProperties = await Cord.ChainSpace.buildFromProperties(
+    chainSpaceAdminDid.uri
   )
+  console.dir(spaceProperties, {
+    depth: null,
+    colors: true,
+  })
 
-  const sellerIdentity4 = Crypto.makeKeypairFromUri('//Entity4', 'sr25519')
-  console.log(
-    `🏛   Seller Entity 4 (${sellerIdentity4.type}): ${sellerIdentity4.address}`
-  )
-
-  console.log(`\n❄️   Demo Collector Entity\n`)
-  const collectorIdentity = Crypto.makeKeypairFromUri('//BuyerApp', 'sr25519')
-  console.log(
-    `🧑🏻‍💼  Score Collector (${collectorIdentity.type}): ${collectorIdentity.address}`
-  )
-
-  console.log('\n✅  Entities created!')
-
-  console.log(`\n❄️  Registry Creation \n`)
-
-  const registryTitle = `Registry v3.${randomUUID().substring(0, 4)}`
-  const registryDetails: Cord.IContents = {
-    title: registryTitle,
-    description: 'Registry for for scoring',
-  }
-
-  const registryType: Cord.IRegistryType = {
-    details: registryDetails,
-    creator: issuerDid.uri,
-  }
-
-  const txRegistry: Cord.IRegistry =
-    Cord.Registry.fromRegistryProperties(registryType)
-
-  let registry
-  try {
-    await Cord.Registry.verifyStored(txRegistry)
-    console.log('Registry already stored. Skipping creation')
-  } catch {
-    console.log('Regisrty not present. Creating it now...')
-    // Authorize the tx.
-    const tx = api.tx.registry.create(txRegistry.details, null)
-    const extrinsic = await Cord.Did.authorizeTx(
-      issuerDid.uri,
-      tx,
-      async ({ data }) => ({
-        signature: issuerKeys.assertionMethod.sign(data),
-        keyType: issuerKeys.assertionMethod.type,
-      }),
-      authorIdentity.address
-    )
-    console.log('\n', txRegistry)
-    // Write to chain then return the Schema.
-    await Cord.Chain.signAndSubmitTx(extrinsic, authorIdentity)
-    registry = txRegistry
-  }
-  console.log('\n✅ Registry created!')
-
-  // Step 4: Add Delelegate One as Registry Admin
-  console.log(`\n❄️  Registry Admin Delegate Authorization \n`)
-  const registryAuthority = await addRegistryAdminDelegate(
-    authorIdentity,
-    issuerDid.uri,
-    registry['identifier'],
-    delegateOneDid.uri,
+  const chainSpace = await Cord.ChainSpace.dispatchToChain(
+    spaceProperties,
+    chainSpaceAdminDid.uri,
+    devAuthorIdentity,
     async ({ data }) => ({
-      signature: issuerKeys.capabilityDelegation.sign(data),
-      keyType: issuerKeys.capabilityDelegation.type,
+      signature: chainSpaceAdminKeys.authentication.sign(data),
+      keyType: chainSpaceAdminKeys.authentication.type,
     })
   )
-  console.log(`\n✅ Registry Authorization - ${registryAuthority} - created!`)
+  console.log('✅ Chain Space created! 🎉')
 
-  console.log(`\n❄️  Journal Entries \n`)
+  await Cord.ChainSpace.sudoApproveChainSpace(
+    devAuthorIdentity,
+    chainSpace.uri,
+    1000
+  )
 
-  let journalEntryArray: Array<IJournalContent> = []
-  let journalContent_1: IJournalContent = {
-    collector: collectorIdentity.address,
-    entity: sellerIdentity1.address,
-    tid: UUID.generatev4().toString(),
-    entry_type: RatingEntry.credit,
-    count: 5,
-    rating: 12.116,
-    rating_type: RatingType.overall,
-  }
-  journalEntryArray.push(journalContent_1)
-
-  let journalContent_2: IJournalContent = {
-    collector: collectorIdentity.address,
-    entity: sellerIdentity2.address,
-    tid: UUID.generatev4().toString(),
-    entry_type: RatingEntry.debit,
-    count: 15,
-    rating: 60,
-    rating_type: RatingType.overall,
-  }
-  journalEntryArray.push(journalContent_2)
-
-  let journalContent_3: IJournalContent = {
-    collector: collectorIdentity.address,
-    entity: sellerIdentity3.address,
-    tid: UUID.generatev4().toString(),
-    entry_type: RatingEntry.credit,
-    count: 46,
-    rating: 144.8,
-    rating_type: RatingType.delivery,
-  }
-  journalEntryArray.push(journalContent_3)
-
-  let journalContent_4: IJournalContent = {
-    collector: collectorIdentity.address,
-    entity: sellerIdentity4.address,
-    tid: UUID.generatev4().toString(),
-    entry_type: RatingEntry.debit,
-    count: 96,
-    rating: 117,
-    rating_type: RatingType.delivery,
-  }
-  journalEntryArray.push(journalContent_4)
-
-  console.dir(journalEntryArray, { depth: null, colors: true })
-  console.log('\n✅ Journal Entry Array created!\n')
-
-  console.log('♺ BAP Transforms the journal entries to required format\n')
-  let transformedJournalEntryArray: Array<IJournalContent> = []
-  for (let i: number = 0; i < journalEntryArray.length; i++) {
-    transformedJournalEntryArray.push(
-      Cord.Score.transformRatingEntry(journalEntryArray[i])
+  console.log(`\n🌐  Chain Space Authorization (Author) `)
+  const permission: Cord.PermissionType = Cord.Permission.ASSERT
+  const spaceAuthProperties =
+    await Cord.ChainSpace.buildFromAuthorizationProperties(
+      chainSpace.uri,
+      networkAuthorDid.uri,
+      permission,
+      chainSpaceAdminDid.uri
     )
+  console.dir(spaceAuthProperties, {
+    depth: null,
+    colors: true,
+  })
+
+  const delegateAuth = await Cord.ChainSpace.dispatchDelegateAuthorization(
+    spaceAuthProperties,
+    networkAuthorIdentity,
+    chainSpace.authorization,
+    async ({ data }) => ({
+      signature: chainSpaceAdminKeys.capabilityDelegation.sign(data),
+      keyType: chainSpaceAdminKeys.capabilityDelegation.type,
+    })
+  )
+  console.log(`✅ Chain Space Authorization Approved! 🎉`)
+
+  console.log(`\n🌐  Query From Chain - Chain Space `)
+  const spaceFromChain = await Cord.ChainSpace.fetchFromChain(chainSpace.uri)
+  console.dir(spaceFromChain, {
+    depth: null,
+    colors: true,
+  })
+
+  console.log(`\n🌐  Query From Chain - Chain Space Authorization `)
+  const spaceAuthFromChain = await Cord.ChainSpace.fetchAuthorizationFromChain(
+    delegateAuth as Cord.AuthorizationUri
+  )
+  console.dir(spaceAuthFromChain, {
+    depth: null,
+    colors: true,
+  })
+
+  console.log(`✅ Initial Setup Completed! 🎊`)
+
+  console.log(`\n⏳ Network Rating Transaction Flow`)
+
+  console.log(`\n💠  Write Rating - (Genesis) Credit Entry `)
+  let ratingContent: Cord.IRatingContent = {
+    entityId: Cord.Utils.UUID.generate(),
+    providerId: Cord.Utils.UUID.generate(),
+    ratingType: Cord.RatingTypeOf.overall,
+    countOfTxn: 100,
+    totalRating: 320,
   }
 
-  console.log(
-    '✍🏻 BAP signs the journal entry array as a packet and sends it to API\n'
-  )
-  const signature = Crypto.sign(
-    JSON.stringify(transformedJournalEntryArray),
-    delegateOneKeys.assertionMethod
+  console.dir(ratingContent, {
+    depth: null,
+    colors: true,
+  })
+  const entryDigest = Cord.Utils.Crypto.hashObjectAsHexStr(ratingContent);
+  const { totalRating, ...restOfRating} = ratingContent;
+  
+  let transformedEntry: Cord.IRatingEntry = {
+    entry: {
+      ...restOfRating,
+      providerDid: networkProviderDid.uri.replace('did:cord:', ''),
+      totalEncodedRating: Math.round(totalRating * 10),
+    },
+    messageId: Cord.Utils.UUID.generate(),
+    entryDigest,
+  };
+
+  console.log(`\n🌐  Rating Information to API endpoint (/write-ratings) `)
+  console.dir(transformedEntry, {
+    depth: null,
+    colors: true,
+  })
+
+  let dispatchEntry = await Cord.Score.buildFromRatingProperties(
+    transformedEntry,
+    chainSpace.uri,
+    networkAuthorDid.uri,
   )
 
-  console.log('\n👨🏻‍⚖️ API verfies the packet\n')
-  Crypto.verify(
-    JSON.stringify(transformedJournalEntryArray),
-    signature,
-    delegateOneKeys.assertionMethod.publicKey
-  )
-  console.log('\n✅ Packet verified!\n')
+  console.log(`\n🌐  Rating Information to Ledger (API -> Ledger) `)
+  console.dir(dispatchEntry, {
+    depth: null,
+    colors: true,
+  })
 
-  console.log(
-    '☎️  API utilizses the verified transformedJournalEntryArray \n to preparing rating input and anchors it to the chain'
+  let ratingUri = await Cord.Score.dispatchRatingToChain(
+    dispatchEntry.details,
+    networkAuthorIdentity,
+    delegateAuth as Cord.AuthorizationUri,
+    async ({ data }) => ({
+      signature: networkAuthorKeys.authentication.sign(data),
+      keyType: networkAuthorKeys.authentication.type,
+    })
   )
 
-  for (let j: number = 0; j < transformedJournalEntryArray.length; j++) {
-    try {
-      let outputFromScore = await Cord.Score.fromRatingEntry(
-        transformedJournalEntryArray[j],
-        authorIdentity.address
-      )
-      let extrensic = await Cord.Score.toChain(
-        outputFromScore,
-        registryAuthority
-      )
-      const authorizedStreamTx = await Cord.Did.authorizeTx(
-        delegateOneDid.uri,
-        extrensic,
-        async ({ data }: any) => ({
-          signature: delegateOneKeys.assertionMethod.sign(data),
-          keyType: delegateOneKeys.assertionMethod.type,
-        }),
-        authorIdentity.address
-      )
-      await Cord.Chain.signAndSubmitTx(authorizedStreamTx, authorIdentity)
-      console.log(
-        `\n✅ Rating ${j + 1} has been achored to the blockchain\n`,
-        outputFromScore.identifier
-      )
-    } catch (error) {
-      console.log(error.message)
+  if (Cord.Identifier.isValidIdentifier(ratingUri)) {
+    console.log('✅ Rating addition successful! 🎉')
+  } else {
+    console.log(`🚫 Ledger Anchoring failed! " 🚫`)
+  }
+
+  console.log(`\n💠  Revoke Rating - Debit Entry `)
+  const revokeInput = {
+    entryUri: ratingUri,
+    entityId: transformedEntry.entry.entityId,
+  }
+  console.dir(revokeInput, {
+    depth: null,
+    colors: true,
+  })
+
+  /* msgId can be decided by application */
+  const msgId = `msg-${Cord.Utils.UUID.generate()}`
+  const transactionTime = new Date().toISOString()
+
+  /* this is used for digest, but its again eco-system policy */
+  const entryTransform = { entryUri: ratingUri, msgId, provider: networkProviderDid.uri, transactionTime }
+
+  const revokeDigest = Cord.Utils.Crypto.hashObjectAsHexStr(entryTransform)
+
+  const revokeRatingEntry: Cord.IRatingRevokeEntry = {
+      entry: {
+        messageId: msgId,
+        entryDigest: revokeDigest,
+        referenceId: ratingUri,
+      },
+      entityId: transformedEntry.entry.entityId,
+      providerDid: networkProviderDid.uri,
     }
-  }
-}
 
+  console.log(
+    `\n🌐  Rating Revoke (Debit) Information to API endpoint (/amend-ratings) `
+  )
+  console.dir(revokeRatingEntry, {
+    depth: null,
+    colors: true,
+  })
+
+  const revokeRatingDispatchEntry =
+    await Cord.Score.buildFromRevokeRatingProperties(
+      revokeRatingEntry,
+      chainSpace.uri,
+      networkAuthorDid.uri,
+    )
+  console.log(
+    `\n🌐  Rating Revoke (Debit) Information to Ledger (API -> Ledger) `
+  )
+  console.dir(revokeRatingDispatchEntry, {
+    depth: null,
+    colors: true,
+  })
+
+  let revokedRatingUri = await Cord.Score.dispatchRevokeRatingToChain(
+    revokeRatingDispatchEntry.details,
+    networkAuthorIdentity,
+    delegateAuth as Cord.AuthorizationUri,
+    async ({ data }) => ({
+      signature: networkAuthorKeys.authentication.sign(data),
+      keyType: networkAuthorKeys.authentication.type,
+    })
+  )
+
+  if (Cord.Identifier.isValidIdentifier(revokedRatingUri)) {
+    console.log('✅ Rating Revoke (Debit) successful! 🎉')
+  } else {
+    console.log(`🚫 Debit Anchoring failed! " 🚫`)
+  }
+
+  console.log(`\n💠  Revised Rating - Credit Entry\n`)
+
+  let revisedRatingContent = {
+    ...ratingContent,
+    providerDid: transformedEntry.entry.providerDid,
+    referenceId: revokedRatingUri,
+    countOfTxn: 80,
+    totalRating: 280,
+  }
+
+  console.dir(revisedRatingContent, {
+    depth: null,
+    colors: true,
+  })
+  
+  const revisedEntryDigest = Cord.Utils.Crypto.hashObjectAsHexStr(revisedRatingContent);
+  
+  let transformedRevisedEntry = {
+    entry: {
+      ...revisedRatingContent,
+      referenceId: revokedRatingUri,
+      totalEncodedRating: Math.round(revisedRatingContent.totalRating * 10),
+    },
+    messageId: Cord.Utils.UUID.generate(),
+    referenceId: revokedRatingUri,
+    entryDigest: revisedEntryDigest,
+  };
+
+  delete transformedRevisedEntry.entry.totalRating;
+  
+  console.log(
+    `\n🌐  Rating Revised(Credit) Information to API endpoint (/write-ratings)\n`
+  )
+
+  let dispatchRevisedEntry = await Cord.Score.buildFromReviseRatingProperties(
+    transformedRevisedEntry,
+    chainSpace.uri,
+    networkAuthorDid.uri,
+  )
+
+  console.dir(dispatchRevisedEntry, {
+    depth: null,
+    colors: true,
+  })
+
+  console.log(
+    `\n🌐  Rating Revised(Credit) Information to Ledger (API -> Ledger) `
+  )
+
+  let revisedRatingUri = await Cord.Score.dispatchReviseRatingToChain(
+    dispatchRevisedEntry.details,
+    networkAuthorIdentity,
+    delegateAuth as Cord.AuthorizationUri,
+    async ({ data }) => ({
+      signature: networkAuthorKeys.authentication.sign(data),
+      keyType: networkAuthorKeys.authentication.type,
+    })
+  )
+
+  if (Cord.Identifier.isValidIdentifier(revisedRatingUri)) {
+    console.log('\n✅ Rating Revision(Credit) successful! 🎉')
+  } else {
+    console.log(`\n🚫 Revision Anchoring failed! " 🚫`)
+  }
+
+  console.log(`\n🌐  Query From Chain - Rating Entry `)
+  const ratingEntryFromChain = await Cord.Score.fetchRatingDetailsfromChain(
+    revisedRatingUri,
+    'Asia/Kolkata'
+  )
+  console.dir(ratingEntryFromChain, {
+    depth: null,
+    colors: true,
+  })
+
+  console.log(`\n🌐  Query From Chain - Aggregate Score `)
+  const aggregateScoreFromChain =
+    await Cord.Score.fetchEntityAggregateScorefromChain(
+      ratingContent.entityId,
+      Cord.RatingTypeOf.overall
+    )
+  console.dir(aggregateScoreFromChain, {
+    depth: null,
+    colors: true,
+  })
+
+  console.log(`\n🌐  Query From Chain - Chain Space Usage `)
+  const spaceUsageFromChain = await Cord.ChainSpace.fetchFromChain(
+    chainSpace.uri
+  )
+  console.dir(spaceUsageFromChain, {
+    depth: null,
+    colors: true,
+  })
+}
 main()
   .then(() => console.log('\nBye! 👋 👋 👋 '))
   .finally(Cord.disconnect)

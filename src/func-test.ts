@@ -1,13 +1,11 @@
 import * as Cord from '@cord.network/sdk'
 // import { UUID, Crypto } from '@cord.network/utils'
-import { generateKeypairs } from './utils/generateKeypairs'
 import { createDid } from './utils/generateDid'
 import { createDidName } from './utils/generateDidName'
 import { getDidDocFromName } from './utils/queryDidName'
 import { randomUUID } from 'crypto'
 import { addNetworkMember } from './utils/createAuthorities'
 import { createAccount } from './utils/createAccount'
-import 'dotenv/config'
 
 import {
   requestJudgement,
@@ -21,10 +19,7 @@ function getChallenge(): string {
 }
 
 async function main() {
-  const { NETWORK_ADDRESS, ANCHOR_URI, DID_NAME } = process.env
-  const networkAddress = NETWORK_ADDRESS
-  const anchorUri = ANCHOR_URI
-  const didName = DID_NAME
+  const networkAddress = process.env.NETWORK_ADDRESS ? process.env.NETWORK_ADDRESS : 'ws://127.0.0.1:9944';
   Cord.ConfigService.set({ submitTxResolveOn: Cord.Chain.IS_IN_BLOCK })
   await Cord.connect(networkAddress)
 
@@ -33,7 +28,7 @@ async function main() {
 
   console.log(`\n❄️  New Network Member`)
   const authorityAuthorIdentity = Cord.Utils.Crypto.makeKeypairFromUri(
-    anchorUri,
+    process.env.ANCHOR_URI ? process.env.ANCHOR_URI : '//Alice',
     'sr25519'
   )
   // Setup network authority account.
@@ -63,26 +58,26 @@ async function main() {
 
   /* Creating the DIDs for the different parties involved in the demo. */
   // Create Verifier DID
-  const { mnemonic: verifierMnemonic, document: verifierDid } = await createDid(
-    authorIdentity
+  const { mnemonic: verifierMnemonic, document: verifierDid } =
+    await createDid(authorIdentity)
+  const verifierKeys = Cord.Utils.Keys.generateKeypairs(
+    verifierMnemonic,
+    'sr25519'
   )
-  const verifierKeys = generateKeypairs(verifierMnemonic)
   console.log(
     `🏢  Verifier (${verifierDid.assertionMethod![0].type}): ${verifierDid.uri}`
   )
   // Create Holder DID
-  const { mnemonic: holderMnemonic, document: holderDid } = await createDid(
-    authorIdentity
-  )
-  const holderKeys = generateKeypairs(holderMnemonic)
+  const { mnemonic: holderMnemonic, document: holderDid } =
+    await createDid(authorIdentity)
+  const holderKeys = Cord.Utils.Keys.generateKeypairs(holderMnemonic, 'sr25519')
   console.log(
     `👩‍⚕️  Holder (${holderDid.assertionMethod![0].type}): ${holderDid.uri}`
   )
   // Create issuer DID
-  const { mnemonic: issuerMnemonic, document: issuerDid } = await createDid(
-    authorIdentity
-  )
-  const issuerKeys = generateKeypairs(issuerMnemonic)
+  const { mnemonic: issuerMnemonic, document: issuerDid } =
+    await createDid(authorIdentity)
+  const issuerKeys = Cord.Utils.Keys.generateKeypairs(issuerMnemonic, 'sr25519')
   console.log(
     `🏛   Issuer (${issuerDid?.assertionMethod![0].type}): ${issuerDid.uri}`
   )
@@ -97,7 +92,10 @@ async function main() {
   // Create Delegate One DID
   const { mnemonic: delegateOneMnemonic, document: delegateOneDid } =
     await createDid(authorIdentity)
-  const delegateOneKeys = generateKeypairs(delegateOneMnemonic)
+  const delegateOneKeys = Cord.Utils.Keys.generateKeypairs(
+    delegateOneMnemonic,
+    'sr25519'
+  )
   console.log(
     `🏛   Delegate (${delegateOneDid?.assertionMethod![0].type}): ${
       delegateOneDid.uri
@@ -106,7 +104,10 @@ async function main() {
   // Create Delegate Two DID
   const { mnemonic: delegateTwoMnemonic, document: delegateTwoDid } =
     await createDid(authorIdentity)
-  const delegateTwoKeys = generateKeypairs(delegateTwoMnemonic)
+  const delegateTwoKeys = Cord.Utils.Keys.generateKeypairs(
+    delegateTwoMnemonic,
+    'sr25519'
+  )
   console.log(
     `🏛   Delegate (${delegateTwoDid?.assertionMethod![0].type}): ${
       delegateTwoDid.uri
@@ -115,7 +116,10 @@ async function main() {
   // Create Delegate 3 DID
   const { mnemonic: delegate3Mnemonic, document: delegate3Did } =
     await createDid(authorIdentity)
-  const delegate3Keys = generateKeypairs(delegate3Mnemonic)
+  const delegate3Keys = Cord.Utils.Keys.generateKeypairs(
+    delegate3Mnemonic,
+    'sr25519'
+  )
   console.log(
     `🏛   Delegate (${delegate3Did?.assertionMethod![0].type}): ${
       delegate3Did.uri
@@ -125,7 +129,7 @@ async function main() {
 
   // Step 2: Create a DID name for Issuer
   console.log(`\n❄️  DID name Creation `)
-  const randomDidName = `${didName}.${randomUUID().substring(0, 4)}@cord`
+  const randomDidName = `solar.sailer.${randomUUID().substring(0, 4)}@cord`
 
   await createDidName(
     issuerDid.uri,
@@ -169,9 +173,46 @@ async function main() {
   await Cord.ChainSpace.sudoApproveChainSpace(
     authorityAuthorIdentity,
     space.uri,
-    100
+    1000
   )
   console.log(`✅  Chain Space Approved`)
+
+  // Step 3.5: Subspace
+  const subSpaceProperties = await Cord.ChainSpace.buildFromProperties(
+    issuerDid.uri
+  )
+  console.dir(subSpaceProperties, {
+    depth: null,
+    colors: true,
+  })
+  const subSpace = await Cord.ChainSpace.dispatchSubspaceCreateToChain(
+    subSpaceProperties,
+    issuerDid.uri,
+    authorIdentity,
+    200,
+    space.uri,
+    async ({ data }) => ({
+      signature: issuerKeys.authentication.sign(data),
+      keyType: issuerKeys.authentication.type,
+    })
+  )
+  console.dir(subSpace, {
+    depth: null,
+    colors: true,
+  })
+  console.log(`\n❄️  SubSpace is created`)
+
+  const subSpaceTx = await Cord.ChainSpace.dispatchUpdateTxCapacityToChain(
+    subSpace.uri,
+    issuerDid.uri,
+    authorIdentity,
+    300,
+    async ({ data }) => ({
+      signature: issuerKeys.authentication.sign(data),
+      keyType: issuerKeys.authentication.type,
+    })
+  )
+  console.log(`\n❄️  SubSpace limit is updated`)
 
   // Step 4: Add Delelegate Two as Registry Delegate
   console.log(`\n❄️  Space Delegate Authorization `)
