@@ -7,15 +7,17 @@
     "demo-vc": "tsx --no-cache src/demo-vc.ts",
     "demo-meta": "tsx --no-cache src/demo-meta.ts",
     "demo-messaging": "tsx --no-cache src/demo-messaging.ts",
-    "demo-score": "tsx --no-cache src/demo-score.ts",
     "start": "tsc src/start.ts",
     "demo-sparknet": "tsx --no-cache demo/src/demo-sparknet.ts",
     "create-custom-schema": "tsx --no-cache demo/src/create-custom-schema",
     "bench": "tsx demo/src/bench.ts",
-    "stream-bench": "tsx --no-cache demo/src/stream-bench"
+    "stream-bench": "tsx --no-cache demo/src/stream-bench",
+    "demo-score": "tsx --no-cache src/demo-score.ts",
+    "demo-statement": "tsx --no-cache src/func-test.ts",
+    "demo-asset": "tsx --no-cache src/demo-asset.ts"
   },
   "dependencies": {
-    "@cord.network/sdk": "^0.9.2",
+    "@cord.network/sdk": "0.9.1-1rc",
     "dotenv": "^16.3.1"
   },
   "devDependencies": {
