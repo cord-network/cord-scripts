@@ -1,6 +1,6 @@
 {
   "name": "cord-demo-scripts",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/dhiway/cord-demo-scripts",
   "scripts": {
     "demo": "tsx --no-cache src/demo.ts",
@@ -8,21 +8,21 @@
     "demo-meta": "tsx --no-cache src/demo-meta.ts",
     "demo-messaging": "tsx --no-cache src/demo-messaging.ts",
     "start": "tsc src/start.ts",
-    "demo-sparknet": "tsx --no-cache demo/src/demo-sparknet.ts",
-    "create-custom-schema": "tsx --no-cache demo/src/create-custom-schema",
+    "demo-sparknet": "tsx --no-cache src/demo-sparknet.ts",
+    "create-custom-schema": "tsx --no-cache src/create-custom-schema",
     "bench": "tsx demo/src/bench.ts",
-    "stream-bench": "tsx --no-cache demo/src/stream-bench",
+    "stream-bench": "tsx --no-cache src/stream-bench",
     "demo-score": "tsx --no-cache src/demo-score.ts",
     "demo-statement": "tsx --no-cache src/func-test.ts",
     "demo-asset": "tsx --no-cache src/demo-asset.ts"
   },
   "dependencies": {
-    "@cord.network/sdk": "0.9.1-1rc",
-    "dotenv": "^16.3.1"
+    "@cord.network/sdk": "0.9.3-4",
+    "dotenv": "^16.4.5"
   },
   "devDependencies": {
-    "moment": "^2.29.1",
-    "tsx": "^3.4.3"
+    "moment": "^2.30.1",
+    "tsx": "^4.19.1"
   },
   "packageManager": "yarn@4.0.2"
 }

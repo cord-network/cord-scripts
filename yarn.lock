@@ -47,66 +47,66 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@cord.network/asset@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/asset@npm:0.9.1-1rc"
+"@cord.network/asset@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/asset@npm:0.9.3-4"
   dependencies:
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/did": "npm:0.9.1-1rc"
-    "@cord.network/identifier": "npm:0.9.1-1rc"
-    "@cord.network/network": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: be54f000c8adeeced03f86693057e3cd244d213656bb529dae6f9b675290ecc1e93e543bcf1707298952fce29de1ce0b04f049332d082fe2d5cd70da0fc8bccc
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/did": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: a66c8011092993c780007b4099e9e01a237ff6bdd1542b575b1cdf4124c97fa0df6306751008f0e3d8786765fb091d1af13ea7de3b6374653db7418ab7ff48ad
   languageName: node
   linkType: hard
 
-"@cord.network/augment-api@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/augment-api@npm:0.9.1-1rc"
+"@cord.network/augment-api@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/augment-api@npm:0.9.3-4"
   dependencies:
-    "@cord.network/type-definitions": "npm:0.9.1-1rc"
+    "@cord.network/type-definitions": "npm:0.9.3-4"
     "@polkadot/rpc-augment": "npm:^10.12.2"
     "@polkadot/rpc-core": "npm:^10.12.2"
     "@polkadot/rpc-provider": "npm:^10.12.2"
-  checksum: d3472e6515fd273c13e453ba76b583433bb896729b3fe97040450599bf48633feae26901711edfccaa532831bfa7c4eba596c3a94d54f39a96ede4942766c1c1
+  checksum: 6ef43e3acba87b9ef1537ce178d0b09571c396a552d63f7dadf3bd84ca80917f22a5cadfb98c9ce2728f3566cfe1046077c9022eca4f7c6fef5223f2e14ed446
   languageName: node
   linkType: hard
 
-"@cord.network/chain-space@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/chain-space@npm:0.9.1-1rc"
+"@cord.network/chain-space@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/chain-space@npm:0.9.3-4"
   dependencies:
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/did": "npm:0.9.1-1rc"
-    "@cord.network/identifier": "npm:0.9.1-1rc"
-    "@cord.network/network": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: 6db1c0f9057f3d49b456c8b5af0fae642916361f660017b6ea100273273b8f61b23e95e73410bdd77b1e3d7784bd3a0cbe63668d9ae6c9e40653ad0f05930e94
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/did": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: 5d9464c63e37ca3a2b3d2a3d57445ca5072e4a85fb258526cdad7857e441d60e749619dba580c35425a170e9a12ce548685198d8d842c47e597df6c900fcc8fc
   languageName: node
   linkType: hard
 
-"@cord.network/config@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/config@npm:0.9.1-1rc"
+"@cord.network/config@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/config@npm:0.9.3-4"
   dependencies:
-    "@cord.network/type-definitions": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: 7c5c3db8494043ef932d41a451a0925ef795c42200dd67624c6cb487c0cd430d48d727c94e1107863f051a8ce084a35448e6896633ce75bc1c6d4d3fd4986156
+    "@cord.network/type-definitions": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: b47409ecb0276254e38dfc9cfe56969acf79e2b2f31327431c6433b6da8cb40cbc821d11a5138b0104e382e63f92116fcb4484bf78500055fddb5b66ce4721fb
   languageName: node
   linkType: hard
 
-"@cord.network/did@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/did@npm:0.9.1-1rc"
+"@cord.network/did@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/did@npm:0.9.3-4"
   dependencies:
-    "@cord.network/augment-api": "npm:0.9.1-1rc"
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/network": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
+    "@cord.network/augment-api": "npm:0.9.3-4"
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
     "@digitalbazaar/security-context": "npm:^1.0.1"
     "@polkadot/api": "npm:^10.12.2"
     "@polkadot/keyring": "npm:^12.6.2"
@@ -114,123 +114,152 @@ __metadata:
     "@polkadot/types-codec": "npm:^10.12.2"
     "@polkadot/util": "npm:^12.6.2"
     "@polkadot/util-crypto": "npm:^12.6.2"
-  checksum: ddfbeb3aa4a18664d0a7c3cd98b07e8df4ab4aa529692d2e87df9f702cf26e712f77c13a6539e72452b9e620f3a2841e4d16b30fd86a043367365bbc42caf7d2
+  checksum: 0c29c2c82d25e63c413c9c724298f00dc5227ce43ef9d9c10187361ef83ae44ce50905c40a31c30edd0ca2a76fb9d67729119d02a8a346d362bb26e59cc80f82
   languageName: node
   linkType: hard
 
-"@cord.network/identifier@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/identifier@npm:0.9.1-1rc"
+"@cord.network/entries@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/entries@npm:0.9.3-4"
   dependencies:
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: 51ac0df755a97f6dff7df76df7c4ec0e694b8a066ec122dc853e3fc451816c9ce5f4db154b51a3a46d39841c981d2a8c42dd97781536b6f044a7639a9a20d227
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/registries": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: fe00ccec972f493b082307332c34e9112f0ca942f8b5b8807b044f15a0e9b664311b04050f5e84de61226ed444aa4b5d98c379b854caffce8025d993bc68bc71
   languageName: node
   linkType: hard
 
-"@cord.network/network-score@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/network-score@npm:0.9.1-1rc"
+"@cord.network/identifier@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/identifier@npm:0.9.3-4"
   dependencies:
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/did": "npm:0.9.1-1rc"
-    "@cord.network/identifier": "npm:0.9.1-1rc"
-    "@cord.network/network": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: f13c1a418dc517d3e136f789d56c42cabc8afee3a749ac96342b9bfaf703ab992d35aa52d64cae15f194ca33e805915afe29b829b3bdd7e08324c8eea9c34d30
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: 3e7391b7e284ee113ddf5ab50d162ea7beaa8d97e95ad625eab9619232ae880cf6b268a18a17f1ec3dc8606746a61f5b5d03008c8d7fde67ab03cae66aa7d35b
   languageName: node
   linkType: hard
 
-"@cord.network/network@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/network@npm:0.9.1-1rc"
+"@cord.network/network-score@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/network-score@npm:0.9.3-4"
   dependencies:
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/did": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: 0af7ed76a57ff1951734ce3503efa430a264daf742817aa42b8b10b40bec8852b6db5b51c0cc680d3cfea69ea6455dda472685b7150cffe37ef8d3277a7d7020
+  languageName: node
+  linkType: hard
+
+"@cord.network/network@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/network@npm:0.9.3-4"
+  dependencies:
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
     "@polkadot/api": "npm:^10.12.2"
     "@polkadot/types": "npm:^10.12.2"
-  checksum: a759e2fd17a917ec8df37e2021c542d53483c5d8f06b58c3c0fb6aded4b865f5747f40ea77f8577a406bda1e5861463503b56aa3c4d400aa55c249a97d5b3a4e
+  checksum: 9f16a74d5de7178ba2bf3e9492606cf3e64d11595f58bef43c38c0f5647e50b3bc1def621343b1941e82f35e5d4b032ccdd373262f84b07c3fb224c5fba8ab3f
   languageName: node
   linkType: hard
 
-"@cord.network/schema@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/schema@npm:0.9.1-1rc"
+"@cord.network/registries@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/registries@npm:0.9.3-4"
   dependencies:
-    "@cord.network/augment-api": "npm:0.9.1-1rc"
-    "@cord.network/chain-space": "npm:0.9.1-1rc"
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/did": "npm:0.9.1-1rc"
-    "@cord.network/identifier": "npm:0.9.1-1rc"
-    "@cord.network/network": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: 22a64b559ff6c1f2045c46d8cf30a708e302444df7398d59d31996cd7ae3607c2cc00dd898675ef6264aa9df2867c4926636d163743cd49b5f5c0f79bf79a6c5
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: 610ca48271e59ab469e764073ddf120eaed3422315a1ad85b70a2978755b5330fc177ee32bce118788cae4fdf71b9bdf53d2a74b7283107841de1b3e1a134fc8
   languageName: node
   linkType: hard
 
-"@cord.network/sdk@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/sdk@npm:0.9.1-1rc"
+"@cord.network/schema@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/schema@npm:0.9.3-4"
   dependencies:
-    "@cord.network/asset": "npm:0.9.1-1rc"
-    "@cord.network/chain-space": "npm:0.9.1-1rc"
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/did": "npm:0.9.1-1rc"
-    "@cord.network/identifier": "npm:0.9.1-1rc"
-    "@cord.network/network": "npm:0.9.1-1rc"
-    "@cord.network/network-score": "npm:0.9.1-1rc"
-    "@cord.network/schema": "npm:0.9.1-1rc"
-    "@cord.network/statement": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: a607cc85f595270610cef8c1cfe58f4931f40f230e5f38b5f955debf25e0e9c7ac9255495c670e558acc04ded85c656706a9028896364a79255c75465df7bbcc
+    "@cord.network/augment-api": "npm:0.9.3-4"
+    "@cord.network/chain-space": "npm:0.9.3-4"
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/did": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: 1430237d71ad4034548e01a6deb66cfd32bb0f2b9fa255bcbb0f2aeeab7dbde7d9ed85f272bb11714bbad0d6bb806f43acdb84d3e56affae1941d740127953a8
   languageName: node
   linkType: hard
 
-"@cord.network/statement@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/statement@npm:0.9.1-1rc"
+"@cord.network/sdk@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/sdk@npm:0.9.3-4"
   dependencies:
-    "@cord.network/config": "npm:0.9.1-1rc"
-    "@cord.network/did": "npm:0.9.1-1rc"
-    "@cord.network/identifier": "npm:0.9.1-1rc"
-    "@cord.network/network": "npm:0.9.1-1rc"
-    "@cord.network/types": "npm:0.9.1-1rc"
-    "@cord.network/utils": "npm:0.9.1-1rc"
-  checksum: f3f94e332ad36aaa5a334f52f0e89c4292a63d60a3571baed758fcfe1bde4317378a7d45638ef5557c0a30b1218f22d46d5e592770ccdaa462044b1f270b074e
+    "@cord.network/asset": "npm:0.9.3-4"
+    "@cord.network/chain-space": "npm:0.9.3-4"
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/did": "npm:0.9.3-4"
+    "@cord.network/entries": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/network-score": "npm:0.9.3-4"
+    "@cord.network/registries": "npm:0.9.3-4"
+    "@cord.network/schema": "npm:0.9.3-4"
+    "@cord.network/statement": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: a4303a446c0c60bb3d36ce1c3295f897e1fa1808c80878a9805a93ad9470f42b48b9c95dfaa43ce767f618721a3566eaf9e20f217938b216eb32888db0615f61
   languageName: node
   linkType: hard
 
-"@cord.network/type-definitions@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/type-definitions@npm:0.9.1-1rc"
+"@cord.network/statement@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/statement@npm:0.9.3-4"
+  dependencies:
+    "@cord.network/config": "npm:0.9.3-4"
+    "@cord.network/did": "npm:0.9.3-4"
+    "@cord.network/identifier": "npm:0.9.3-4"
+    "@cord.network/network": "npm:0.9.3-4"
+    "@cord.network/types": "npm:0.9.3-4"
+    "@cord.network/utils": "npm:0.9.3-4"
+  checksum: bbfc78a775dd684f7948d0937e283eb197790f4018038675a9200c51a4d6f68c1eb42c8a36834ae4d45045fb1f7ad8fc6fdde674302c368cba5154c4b38f41e8
+  languageName: node
+  linkType: hard
+
+"@cord.network/type-definitions@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/type-definitions@npm:0.9.3-4"
   dependencies:
     "@polkadot/types": "npm:^10.12.2"
-  checksum: ea531f46a9d0fda6f80594e91141da84abd09e3c22f53ffb7eed8c9322613236f48fa07d296c65432ec9cf90488ff648802c1509356585dac1fbc78627f6c9fd
+  checksum: 380ba9b1d4ccaca7db677000cc0c84464fd52baf6a5e667878092340ad9721b8e21d1b16dad1e336f240b70b734c8d14e784b6f9c2c4da9fd0fa70c141742d16
   languageName: node
   linkType: hard
 
-"@cord.network/types@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/types@npm:0.9.1-1rc"
+"@cord.network/types@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/types@npm:0.9.3-4"
   dependencies:
     "@polkadot/api": "npm:^10.12.2"
     "@polkadot/keyring": "npm:^12.6.2"
     "@polkadot/types": "npm:^10.12.2"
     "@polkadot/util": "npm:^12.6.2"
     "@polkadot/util-crypto": "npm:^12.6.2"
-  checksum: 98940314b4fda3871963e37a2b5c9ebc65fc2b8518c3cc95a33a099efbdfc8931d70647065e7c6ba8cf40c4f07b7ab3f6a8f7d6bcdf2a18a21eac89147aac99e
+  checksum: b525202835cee44a91b0d1d1a2697dc21aaa0dbf26a8e68943b0d5f01207b8d454bae0c2e95bb5365edb3109cfb42f9f6a21b84a62b649f5edcbb3a4a6d855a8
   languageName: node
   linkType: hard
 
-"@cord.network/utils@npm:0.9.1-1rc":
-  version: 0.9.1-1rc
-  resolution: "@cord.network/utils@npm:0.9.1-1rc"
+"@cord.network/utils@npm:0.9.3-4":
+  version: 0.9.3-4
+  resolution: "@cord.network/utils@npm:0.9.3-4"
   dependencies:
-    "@cord.network/types": "npm:0.9.1-1rc"
+    "@cord.network/types": "npm:0.9.3-4"
     "@polkadot/api": "npm:^10.12.2"
     "@polkadot/keyring": "npm:^12.6.2"
     "@polkadot/util": "npm:^12.6.2"
@@ -238,7 +267,7 @@ __metadata:
     cbor-x: "npm:^1.5.8"
     tweetnacl: "npm:^1.0.3"
     uuid: "npm:^9.0.1"
-  checksum: 8bb287c22a37cae796f628c80cc95520df88ae4d3d954e86eb75348ea74f385f745bb361b0f8de760dff613fcec7311e1aa7c4caa3c503003ffd85516f1e03c2
+  checksum: b45bff003df5b9d84abc1985dbd1e65e6c0bdef5e937e1882033599b165f46c2cfd014a7a81f0fe7af0893953c74f27961d615873d87191c3abe1e7611ef2ef4
   languageName: node
   linkType: hard
 
@@ -249,186 +278,170 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@esbuild-kit/cjs-loader@npm:^2.4.2":
-  version: 2.4.2
-  resolution: "@esbuild-kit/cjs-loader@npm:2.4.2"
-  dependencies:
-    "@esbuild-kit/core-utils": "npm:^3.0.0"
-    get-tsconfig: "npm:^4.4.0"
-  checksum: 44502097eb9287dc4f25d5c34acdbf5462228a91a348d08fe315939f14ac29fa47704cdcee9f6fca3db4ace93ed63825f06187325e45381a78ecbf3a65eaf759
+"@esbuild/aix-ppc64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/aix-ppc64@npm:0.23.1"
+  conditions: os=aix & cpu=ppc64
   languageName: node
   linkType: hard
 
-"@esbuild-kit/core-utils@npm:^3.0.0":
-  version: 3.1.0
-  resolution: "@esbuild-kit/core-utils@npm:3.1.0"
-  dependencies:
-    esbuild: "npm:~0.17.6"
-    source-map-support: "npm:^0.5.21"
-  checksum: ab48dc117c179c553589be517abeaa8d242515ad985c63f4d57646f49cbd38043bcc29191ad116d6714152bb5e620a85cf5ff94bb1216c803adb2979646d7c2d
-  languageName: node
-  linkType: hard
-
-"@esbuild-kit/esm-loader@npm:^2.5.5":
-  version: 2.5.5
-  resolution: "@esbuild-kit/esm-loader@npm:2.5.5"
-  dependencies:
-    "@esbuild-kit/core-utils": "npm:^3.0.0"
-    get-tsconfig: "npm:^4.4.0"
-  checksum: 6133f784322e617cac5649e9489c580047e7095cd9ad9e693b03b1cd3df9809e02e224d488d93c1a889441d01e4210c66d01adf53383eefbbe9a585dcbccacc2
-  languageName: node
-  linkType: hard
-
-"@esbuild/android-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/android-arm64@npm:0.17.19"
+"@esbuild/android-arm64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/android-arm64@npm:0.23.1"
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/android-arm@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/android-arm@npm:0.17.19"
+"@esbuild/android-arm@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/android-arm@npm:0.23.1"
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@esbuild/android-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/android-x64@npm:0.17.19"
+"@esbuild/android-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/android-x64@npm:0.23.1"
   conditions: os=android & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/darwin-arm64@npm:0.17.19"
+"@esbuild/darwin-arm64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/darwin-arm64@npm:0.23.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/darwin-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/darwin-x64@npm:0.17.19"
+"@esbuild/darwin-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/darwin-x64@npm:0.23.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/freebsd-arm64@npm:0.17.19"
+"@esbuild/freebsd-arm64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/freebsd-arm64@npm:0.23.1"
   conditions: os=freebsd & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/freebsd-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/freebsd-x64@npm:0.17.19"
+"@esbuild/freebsd-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/freebsd-x64@npm:0.23.1"
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-arm64@npm:0.17.19"
+"@esbuild/linux-arm64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-arm64@npm:0.23.1"
   conditions: os=linux & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-arm@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-arm@npm:0.17.19"
+"@esbuild/linux-arm@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-arm@npm:0.23.1"
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ia32@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-ia32@npm:0.17.19"
+"@esbuild/linux-ia32@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-ia32@npm:0.23.1"
   conditions: os=linux & cpu=ia32
   languageName: node
   linkType: hard
 
-"@esbuild/linux-loong64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-loong64@npm:0.17.19"
+"@esbuild/linux-loong64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-loong64@npm:0.23.1"
   conditions: os=linux & cpu=loong64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-mips64el@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-mips64el@npm:0.17.19"
+"@esbuild/linux-mips64el@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-mips64el@npm:0.23.1"
   conditions: os=linux & cpu=mips64el
   languageName: node
   linkType: hard
 
-"@esbuild/linux-ppc64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-ppc64@npm:0.17.19"
+"@esbuild/linux-ppc64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-ppc64@npm:0.23.1"
   conditions: os=linux & cpu=ppc64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-riscv64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-riscv64@npm:0.17.19"
+"@esbuild/linux-riscv64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-riscv64@npm:0.23.1"
   conditions: os=linux & cpu=riscv64
   languageName: node
   linkType: hard
 
-"@esbuild/linux-s390x@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-s390x@npm:0.17.19"
+"@esbuild/linux-s390x@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-s390x@npm:0.23.1"
   conditions: os=linux & cpu=s390x
   languageName: node
   linkType: hard
 
-"@esbuild/linux-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/linux-x64@npm:0.17.19"
+"@esbuild/linux-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/linux-x64@npm:0.23.1"
   conditions: os=linux & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/netbsd-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/netbsd-x64@npm:0.17.19"
+"@esbuild/netbsd-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/netbsd-x64@npm:0.23.1"
   conditions: os=netbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/openbsd-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/openbsd-x64@npm:0.17.19"
+"@esbuild/openbsd-arm64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/openbsd-arm64@npm:0.23.1"
+  conditions: os=openbsd & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@esbuild/openbsd-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/openbsd-x64@npm:0.23.1"
   conditions: os=openbsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/sunos-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/sunos-x64@npm:0.17.19"
+"@esbuild/sunos-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/sunos-x64@npm:0.23.1"
   conditions: os=sunos & cpu=x64
   languageName: node
   linkType: hard
 
-"@esbuild/win32-arm64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/win32-arm64@npm:0.17.19"
+"@esbuild/win32-arm64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/win32-arm64@npm:0.23.1"
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@esbuild/win32-ia32@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/win32-ia32@npm:0.17.19"
+"@esbuild/win32-ia32@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/win32-ia32@npm:0.23.1"
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@esbuild/win32-x64@npm:0.17.19":
-  version: 0.17.19
-  resolution: "@esbuild/win32-x64@npm:0.17.19"
+"@esbuild/win32-x64@npm:0.23.1":
+  version: 0.23.1
+  resolution: "@esbuild/win32-x64@npm:0.23.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -1120,13 +1133,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"buffer-from@npm:^1.0.0":
-  version: 1.1.2
-  resolution: "buffer-from@npm:1.1.2"
-  checksum: 124fff9d66d691a86d3b062eff4663fe437a9d9ee4b47b1b9e97f5a5d14f6d5399345db80f796827be7c95e70a8e765dd404b7c3ff3b3324f98e9b0c8826cc34
-  languageName: node
-  linkType: hard
-
 "cacache@npm:^18.0.0":
   version: 18.0.2
   resolution: "cacache@npm:18.0.2"
@@ -1224,10 +1230,10 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "cord-demo-scripts@workspace:."
   dependencies:
-    "@cord.network/sdk": "npm:0.9.1-1rc"
-    dotenv: "npm:^16.3.1"
-    moment: "npm:^2.29.1"
-    tsx: "npm:^3.4.3"
+    "@cord.network/sdk": "npm:0.9.3-4"
+    dotenv: "npm:^16.4.5"
+    moment: "npm:^2.30.1"
+    tsx: "npm:^4.19.1"
   languageName: unknown
   linkType: soft
 
@@ -1268,10 +1274,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"dotenv@npm:^16.3.1":
-  version: 16.3.1
-  resolution: "dotenv@npm:16.3.1"
-  checksum: b95ff1bbe624ead85a3cd70dbd827e8e06d5f05f716f2d0cbc476532d54c7c9469c3bc4dd93ea519f6ad711cb522c00ac9a62b6eb340d5affae8008facc3fbd7
+"dotenv@npm:^16.4.5":
+  version: 16.4.5
+  resolution: "dotenv@npm:16.4.5"
+  checksum: 48d92870076832af0418b13acd6e5a5a3e83bb00df690d9812e94b24aff62b88ade955ac99a05501305b8dc8f1b0ee7638b18493deb6fe93d680e5220936292f
   languageName: node
   linkType: hard
 
@@ -1319,33 +1325,37 @@ __metadata:
   languageName: node
   linkType: hard
 
-"esbuild@npm:~0.17.6":
-  version: 0.17.19
-  resolution: "esbuild@npm:0.17.19"
+"esbuild@npm:~0.23.0":
+  version: 0.23.1
+  resolution: "esbuild@npm:0.23.1"
   dependencies:
-    "@esbuild/android-arm": "npm:0.17.19"
-    "@esbuild/android-arm64": "npm:0.17.19"
-    "@esbuild/android-x64": "npm:0.17.19"
-    "@esbuild/darwin-arm64": "npm:0.17.19"
-    "@esbuild/darwin-x64": "npm:0.17.19"
-    "@esbuild/freebsd-arm64": "npm:0.17.19"
-    "@esbuild/freebsd-x64": "npm:0.17.19"
-    "@esbuild/linux-arm": "npm:0.17.19"
-    "@esbuild/linux-arm64": "npm:0.17.19"
-    "@esbuild/linux-ia32": "npm:0.17.19"
-    "@esbuild/linux-loong64": "npm:0.17.19"
-    "@esbuild/linux-mips64el": "npm:0.17.19"
-    "@esbuild/linux-ppc64": "npm:0.17.19"
-    "@esbuild/linux-riscv64": "npm:0.17.19"
-    "@esbuild/linux-s390x": "npm:0.17.19"
-    "@esbuild/linux-x64": "npm:0.17.19"
-    "@esbuild/netbsd-x64": "npm:0.17.19"
-    "@esbuild/openbsd-x64": "npm:0.17.19"
-    "@esbuild/sunos-x64": "npm:0.17.19"
-    "@esbuild/win32-arm64": "npm:0.17.19"
-    "@esbuild/win32-ia32": "npm:0.17.19"
-    "@esbuild/win32-x64": "npm:0.17.19"
+    "@esbuild/aix-ppc64": "npm:0.23.1"
+    "@esbuild/android-arm": "npm:0.23.1"
+    "@esbuild/android-arm64": "npm:0.23.1"
+    "@esbuild/android-x64": "npm:0.23.1"
+    "@esbuild/darwin-arm64": "npm:0.23.1"
+    "@esbuild/darwin-x64": "npm:0.23.1"
+    "@esbuild/freebsd-arm64": "npm:0.23.1"
+    "@esbuild/freebsd-x64": "npm:0.23.1"
+    "@esbuild/linux-arm": "npm:0.23.1"
+    "@esbuild/linux-arm64": "npm:0.23.1"
+    "@esbuild/linux-ia32": "npm:0.23.1"
+    "@esbuild/linux-loong64": "npm:0.23.1"
+    "@esbuild/linux-mips64el": "npm:0.23.1"
+    "@esbuild/linux-ppc64": "npm:0.23.1"
+    "@esbuild/linux-riscv64": "npm:0.23.1"
+    "@esbuild/linux-s390x": "npm:0.23.1"
+    "@esbuild/linux-x64": "npm:0.23.1"
+    "@esbuild/netbsd-x64": "npm:0.23.1"
+    "@esbuild/openbsd-arm64": "npm:0.23.1"
+    "@esbuild/openbsd-x64": "npm:0.23.1"
+    "@esbuild/sunos-x64": "npm:0.23.1"
+    "@esbuild/win32-arm64": "npm:0.23.1"
+    "@esbuild/win32-ia32": "npm:0.23.1"
+    "@esbuild/win32-x64": "npm:0.23.1"
   dependenciesMeta:
+    "@esbuild/aix-ppc64":
+      optional: true
     "@esbuild/android-arm":
       optional: true
     "@esbuild/android-arm64":
@@ -1380,6 +1390,8 @@ __metadata:
       optional: true
     "@esbuild/netbsd-x64":
       optional: true
+    "@esbuild/openbsd-arm64":
+      optional: true
     "@esbuild/openbsd-x64":
       optional: true
     "@esbuild/sunos-x64":
@@ -1392,7 +1404,7 @@ __metadata:
       optional: true
   bin:
     esbuild: bin/esbuild
-  checksum: c7ac14bfaaebe4745d5d18347b4f6854fd1140acb9389e88dbfa5c20d4e2122451d9647d5498920470a880a605d6e5502b5c2102da6c282b01f129ddd49d2874
+  checksum: 08c2ed1105cc3c5e3a24a771e35532fe6089dd24a39c10097899072cef4a99f20860e41e9294e000d86380f353b04d8c50af482483d7f69f5208481cce61eec7
   languageName: node
   linkType: hard
 
@@ -1457,31 +1469,31 @@ __metadata:
   languageName: node
   linkType: hard
 
-"fsevents@npm:~2.3.2":
-  version: 2.3.2
-  resolution: "fsevents@npm:2.3.2"
+"fsevents@npm:~2.3.3":
+  version: 2.3.3
+  resolution: "fsevents@npm:2.3.3"
   dependencies:
     node-gyp: "npm:latest"
-  checksum: be78a3efa3e181cda3cf7a4637cb527bcebb0bd0ea0440105a3bb45b86f9245b307dc10a2507e8f4498a7d4ec349d1910f4d73e4d4495b16103106e07eee735b
+  checksum: a1f0c44595123ed717febbc478aa952e47adfc28e2092be66b8ab1635147254ca6cfe1df792a8997f22716d4cbafc73309899ff7bfac2ac3ad8cf2e4ecc3ec60
   conditions: os=darwin
   languageName: node
   linkType: hard
 
-"fsevents@patch:fsevents@npm%3A~2.3.2#optional!builtin<compat/fsevents>":
-  version: 2.3.2
-  resolution: "fsevents@patch:fsevents@npm%3A2.3.2#optional!builtin<compat/fsevents>::version=2.3.2&hash=df0bf1"
+"fsevents@patch:fsevents@npm%3A~2.3.3#optional!builtin<compat/fsevents>":
+  version: 2.3.3
+  resolution: "fsevents@patch:fsevents@npm%3A2.3.3#optional!builtin<compat/fsevents>::version=2.3.3&hash=df0bf1"
   dependencies:
     node-gyp: "npm:latest"
   conditions: os=darwin
   languageName: node
   linkType: hard
 
-"get-tsconfig@npm:^4.4.0":
-  version: 4.6.2
-  resolution: "get-tsconfig@npm:4.6.2"
+"get-tsconfig@npm:^4.7.5":
+  version: 4.8.1
+  resolution: "get-tsconfig@npm:4.8.1"
   dependencies:
     resolve-pkg-maps: "npm:^1.0.0"
-  checksum: 352c7313720b0f1172de5b6697da55c02744bacd8587f4cd989bfa25d8bb1af702128c2869121e6e4eef06c5c2f013406d2840905a8e898fd35351a305298ee1
+  checksum: 536ee85d202f604f4b5fb6be81bcd6e6d9a96846811e83e9acc6de4a04fb49506edea0e1b8cf1d5ee7af33e469916ec2809d4c5445ab8ae015a7a51fbd1572f9
   languageName: node
   linkType: hard
 
@@ -1766,10 +1778,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"moment@npm:^2.29.1":
-  version: 2.29.4
-  resolution: "moment@npm:2.29.4"
-  checksum: 844c6f3ce42862ac9467c8ca4f5e48a00750078682cc5bda1bc0e50cc7ca88e2115a0f932d65a06e4a90e26cb78892be9b3ca3dd6546ca2c4d994cebb787fc2b
+"moment@npm:^2.30.1":
+  version: 2.30.1
+  resolution: "moment@npm:2.30.1"
+  checksum: 865e4279418c6de666fca7786607705fd0189d8a7b7624e2e56be99290ac846f90878a6f602e34b4e0455c549b85385b1baf9966845962b313699e7cb847543a
   languageName: node
   linkType: hard
 
@@ -2018,23 +2030,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"source-map-support@npm:^0.5.21":
-  version: 0.5.21
-  resolution: "source-map-support@npm:0.5.21"
-  dependencies:
-    buffer-from: "npm:^1.0.0"
-    source-map: "npm:^0.6.0"
-  checksum: 9ee09942f415e0f721d6daad3917ec1516af746a8120bba7bb56278707a37f1eb8642bde456e98454b8a885023af81a16e646869975f06afc1a711fb90484e7d
-  languageName: node
-  linkType: hard
-
-"source-map@npm:^0.6.0":
-  version: 0.6.1
-  resolution: "source-map@npm:0.6.1"
-  checksum: ab55398007c5e5532957cb0beee2368529618ac0ab372d789806f5718123cc4367d57de3904b4e6a4170eb5a0b0f41373066d02ca0735a0c4d75c7d328d3e011
-  languageName: node
-  linkType: hard
-
 "sprintf-js@npm:^1.1.3":
   version: 1.1.3
   resolution: "sprintf-js@npm:1.1.3"
@@ -2112,20 +2107,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tsx@npm:^3.4.3":
-  version: 3.12.7
-  resolution: "tsx@npm:3.12.7"
+"tsx@npm:^4.19.1":
+  version: 4.19.1
+  resolution: "tsx@npm:4.19.1"
   dependencies:
-    "@esbuild-kit/cjs-loader": "npm:^2.4.2"
-    "@esbuild-kit/core-utils": "npm:^3.0.0"
-    "@esbuild-kit/esm-loader": "npm:^2.5.5"
-    fsevents: "npm:~2.3.2"
+    esbuild: "npm:~0.23.0"
+    fsevents: "npm:~2.3.3"
+    get-tsconfig: "npm:^4.7.5"
   dependenciesMeta:
     fsevents:
       optional: true
   bin:
-    tsx: dist/cli.js
-  checksum: fe25121ecc05637be0b38912c1629c968277cda41855947bc57333bb02016d77610d7289ea5f32b7589a800d6b071635ce6797ff425470e1afc60ca6986f73b4
+    tsx: dist/cli.mjs
+  checksum: cbea9baf57e7406fa0ecc2c03b9bb2501ee740dc28c938f949180a646a28e5d65e7cccbfba340508923bfd45e90320ef9eef7f815cae4515b6ef2ee429edc7ee
   languageName: node
   linkType: hard
 
