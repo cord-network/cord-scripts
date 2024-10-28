@@ -14,6 +14,7 @@
     "stream-bench": "tsx --no-cache src/stream-bench",
     "demo-score": "tsx --no-cache src/demo-score.ts",
     "demo-statement": "tsx --no-cache src/func-test.ts",
+    "demo-statement1": "tsx --no-cache src/func-test_v9400.ts",
     "demo-asset": "tsx --no-cache src/demo-asset.ts"
   },
   "dependencies": {
