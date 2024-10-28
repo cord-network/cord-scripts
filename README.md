@@ -6,6 +6,30 @@
 * Have [`yarn`](https://yarnpkg.com/) installed and ready.
 * Any web browser (which supports javascript) to check transactions on the CORD Chain.
 
+## How to run the demo code (with staging network)
+
+* Step 1: checkout/clone this repository.
+
+* Step 2: install with `yarn install` once you are inside the repository.
+
+* Step 3: You can watch the events and blocks finalization @ https://apps.cord.network/?rpc=wss%3A%2F%2Fregistries.demo.cord.network#/explorer
+
+* Step 4: run the demo script with `NETWORK_ADDRESS=wss://registries.demo.cord.network yarn demo-statement1`. Understand whats happening by checking the code at `src/func-test_v9400.ts`.
+
+
+## How to run the demo code (with local node)
+
+* Step 1: checkout/clone this repository.
+
+* Step 2: install with `yarn install` once you are inside the repository.
+
+* Step 3: start the CORD Network in the developer mode (In another terminal)
+  - `docker run --network host dhiway/cord:develop --dev`
+  - Note that this exposes ports 9933/9944/30333
+  - You can watch the events and blocks finalization @ https://apps.cord.network/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/explorer
+
+* Step 4: run the demo script with `npx tsx src/func-test.ts`. Understand whats happening by checking the code at `src/func-test.ts`.
+
 ## How to run the demo code with DOCKER
 
 * Step 1: checkout/clone this repository.
@@ -27,36 +51,6 @@ sudo docker run --env NETWORK_ADDRESS='<network-address>' --env ANCHOR_URI='<anc
 Example : `sudo docker run --env NETWORK_ADDRESS='ws://host.docker.internal:9944' --env ANCHOR_URI='//Alice' <docker-image-name> src/func-test.ts`
 
   -  Here values of `NETWORK_ADDRESS` and `ANCHOR_URI` can be changed according to your use case.
-
-## How to run the demo code (with local node)
-
-* Step 1: checkout/clone this repository.
-
-* Step 2: install with `yarn install` once you are inside the repository.
-
-* Step 3: start the CORD Network in the developer mode (In another terminal)
-  - `docker run --network host dhiway/cord:develop --dev`
-  - Note that this exposes ports 9933/9944/30333
-  - You can watch the events and blocks finalization @ https://apps.cord.network/?rpc=ws%3A%2F%2F127.0.0.1%3A9944#/explorer
-
-* Step 4: run the demo script with `npx tsx src/func-test.ts`. Understand whats happening by checking the code at `src/func-test.ts`.
-
-
-## How to run the demo code (with staging network)
-
-* Step 1: checkout/clone this repository.
-
-* Step 2: install with `yarn install` once you are inside the repository.
-
-* Step 3: You can watch the events and blocks finalization @ https://apps.cord.network/?rpc=wss%3A%2F%2Fstaging.cord.network#/explorer
-
-* Step 4: Open the demo file you want to run (eg., `src/func-test.ts`) and change `ws://127.0.0.1:9944` to `wss://staging.cord.network`. Save the file.
-
-* Step 5: run the demo script with `npx tsx src/func-test.ts`. Understand whats happening by checking the code at `src/func-test.ts`.
-
-* Step 6: run the VC (Verifiable Credential) demo script by running `npx tsx src/func-test.ts`.
-
-  - NOTE: The VerifiableCredential is a required form of output if your application wants to interact with other applications. If one needs to have complete eco-system in their control, just the stream format of CORD SDK is good enough.
 
 
 ## What next from here?
